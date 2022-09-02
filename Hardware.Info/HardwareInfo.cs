@@ -13,6 +13,7 @@ namespace Hardware.Info
         public MemoryStatus MemoryStatus { get; private set; } = new MemoryStatus();
 
         public List<Battery> BatteryList { get; private set; } = new List<Battery>();
+        public List<ComputerSystem> ComputerSystemList { get; private set; } = new List<ComputerSystem>();
         public List<BIOS> BiosList { get; private set; } = new List<BIOS>();
         public List<CPU> CpuList { get; private set; } = new List<CPU>();
         public List<Drive> DriveList { get; private set; } = new List<Drive>();
@@ -51,6 +52,7 @@ namespace Hardware.Info
             RefreshMemoryStatus();
 
             RefreshBatteryList();
+            RefreshComputerSystemList();
             RefreshBIOSList();
             RefreshCPUList();
             RefreshDriveList();
@@ -68,6 +70,7 @@ namespace Hardware.Info
         public void RefreshMemoryStatus() => MemoryStatus = _hardwareInfoRetrieval.GetMemoryStatus();
 
         public void RefreshBatteryList() => BatteryList = _hardwareInfoRetrieval.GetBatteryList();
+        public void RefreshComputerSystemList() => ComputerSystemList = _hardwareInfoRetrieval.GetComputerSystemList();
         public void RefreshBIOSList() => BiosList = _hardwareInfoRetrieval.GetBiosList();
         public void RefreshCPUList(bool includePercentProcessorTime = true) => CpuList = _hardwareInfoRetrieval.GetCpuList(includePercentProcessorTime);
         public void RefreshDriveList() => DriveList = _hardwareInfoRetrieval.GetDriveList();

@@ -20,6 +20,7 @@ Battery, BIOS, CPU - processor, storage drive, keyboard, RAM - memory, monitor, 
             {
                 //hardwareInfo.RefreshMemoryStatus();
                 //hardwareInfo.RefreshBatteryList();
+                //hardwareInfo.RefreshComputerSystemList();
                 //hardwareInfo.RefreshBIOSList();
                 //hardwareInfo.RefreshCPUList();
                 //hardwareInfo.RefreshDriveList();
@@ -41,6 +42,9 @@ Battery, BIOS, CPU - processor, storage drive, keyboard, RAM - memory, monitor, 
                     Console.WriteLine(hardware);
 
                 foreach (var hardware in hardwareInfo.BiosList)
+                    Console.WriteLine(hardware);
+				
+				foreach (var hardware in hardwareInfo.ComputerSystemList)
                     Console.WriteLine(hardware);
 
                 foreach (var cpu in hardwareInfo.CpuList)
@@ -180,6 +184,8 @@ Setting `includeNetworkAdapterConfiguration` to `false` has only a small impact 
 
 ## Version history:
 
+- 10.0.2.0:
+    - Added `GetComputerSystemList()` in macOS - by [@pas21x](https://github.com/pas21x)
 - 10.0.1.0:
     - Added `GetBatteryList()` in macOS - by [@Tadelsucht](https://github.com/Tadelsucht)
 - 10.0.0.1:

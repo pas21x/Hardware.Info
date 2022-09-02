@@ -7,6 +7,7 @@ namespace Hardware.Info
         MemoryStatus MemoryStatus { get; }
 
         List<Battery> BatteryList { get; }
+        List<ComputerSystem> ComputerSystemList { get; }
         List<BIOS> BiosList { get; }
         List<CPU> CpuList { get; }
         List<Drive> DriveList { get; }
@@ -25,6 +26,7 @@ namespace Hardware.Info
         void RefreshMemoryStatus();
 
         void RefreshBatteryList();
+        void RefreshComputerSystemList();
         void RefreshBIOSList();
         void RefreshCPUList(bool includePercentProcessorTime = true);
         void RefreshDriveList();

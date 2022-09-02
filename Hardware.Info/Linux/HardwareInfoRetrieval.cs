@@ -99,6 +99,22 @@ namespace Hardware.Info.Linux
 
             return batteryList;
         }
+        
+        public List<ComputerSystem> GetComputerSystemList()
+        {
+            List<ComputerSystem> computerSystemList = new List<ComputerSystem>();
+
+            ComputerSystem computerSystem = new ComputerSystem
+            {
+                Manufacturer = TryReadTextFromFile("/sys/class/dmi/id/sys_vendor"),
+                Model = TryReadTextFromFile("/sys/class/dmi/id/product_name")
+            };
+
+            computerSystemList.Add(computerSystem);
+
+            return computerSystemList;
+        }
+
 
         public List<BIOS> GetBiosList()
         {

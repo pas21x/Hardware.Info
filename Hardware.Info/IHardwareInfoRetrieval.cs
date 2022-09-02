@@ -7,6 +7,7 @@ namespace Hardware.Info
         MemoryStatus GetMemoryStatus();
 
         List<Battery> GetBatteryList();
+        List<ComputerSystem> GetComputerSystemList();
         List<BIOS> GetBiosList();
         List<CPU> GetCpuList(bool includePercentProcessorTime = true);
         List<Drive> GetDriveList();

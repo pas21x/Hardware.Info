@@ -174,6 +174,29 @@ namespace Hardware.Info.Windows
             return batteryList;
         }
 
+        public List<ComputerSystem> GetComputerSystemList()
+        {
+            List<ComputerSystem> computerSystemList = new List<ComputerSystem>();
+
+            string queryString = UseAsteriskInWMI ? "SELECT * FROM Win32_ComputerSystem"
+                                                  : "SELECT Manufacturer, Model FROM Win32_ComputerSystem";
+            using ManagementObjectSearcher mos = new ManagementObjectSearcher(_managementScope, queryString, _enumerationOptions);
+
+            foreach (ManagementObject mo in mos.Get())
+            {
+                ComputerSystem computerSystem = new ComputerSystem
+                {
+                    Manufacturer = GetPropertyString(mo["Manufacturer"]),
+                    Model = GetPropertyString(mo["Model"]),
+                };
+
+                computerSystemList.Add(computerSystem);
+            }
+
+            return computerSystemList;
+        }
+
+
         public List<BIOS> GetBiosList()
         {
             List<BIOS> biosList = new List<BIOS>();

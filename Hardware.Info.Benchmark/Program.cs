@@ -12,6 +12,8 @@ namespace Hardware.Info.Benchmark
         [Benchmark]
         public void RefreshBatteryList() => hardwareInfo.RefreshBatteryList();
         [Benchmark]
+        public void RefreshComputerSystemList() => hardwareInfo.RefreshComputerSystemList();
+        [Benchmark]
         public void RefreshBIOSList() => hardwareInfo.RefreshBIOSList();
         [Benchmark]
         public void RefreshCPUList() => hardwareInfo.RefreshCPUList();
